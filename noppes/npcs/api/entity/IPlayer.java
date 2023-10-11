@@ -140,7 +140,7 @@ public interface IPlayer<T extends ServerPlayer> extends IEntityLiving<T> {
 	public void resetSpawnpoint();
 
 	/**
-	 * @param achievement The achievement id. For a complete list see <a href="http://minecraft.gamepedia.com/Achievements>Achievements</a>
+	 * @param achievement The achievement id. For a complete list see <a href="http://minecraft.gamepedia.com/Achievements">Achievements</a>
 	 * @return Returns whether or not the player has this achievement
 	 */
 	public boolean hasAdvancement(String achievement);
