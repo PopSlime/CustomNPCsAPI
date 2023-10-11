@@ -16,4 +16,5 @@ jobs:
           javadoc-branch: javadoc
           java-version: 17
           project: gradle
+          javadoc-source-folder: .
           custom-command: javadoc -J"-Duser.language=en" noppes.npcs.api --ignore-source-errors -locale en_US -overview overview.html -subpackages noppes
