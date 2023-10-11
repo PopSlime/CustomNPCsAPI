@@ -1,5 +1,5 @@
 /**
- * This package contains event classes whose instances are dispatched to the corresponding hook functions (if present) in CNPC scripts.
+ * <p>This package contains event classes whose instances are dispatched to the corresponding hook functions (if present) in CNPC scripts.</p>
  *
  * <p>These classes represent different events that a script may listen to, e.g. when a player is initialized, an NPC is damaged, etc. Most scripts are written in a way that they listen to specific events, and then do specific actions.</p>
  *
