@@ -37,7 +37,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Hook function name: <code>init</code><br />
 	 * Triggered when the player joins the world, respawns, or travels from the End to Overworld, or <em>at most</em> 10 game ticks (0.5 seconds expected) after the player script is edited.
 	 * </p>
-	 * <p>After the player script is edited, the first subsequent event triggerd on the player will also trigger this event. Because the {@link UpdateEvent} event is triggered every 10 game ticks, this event is triggered at most 10 game ticks after the script is edited.</p>
+	 * <p>After the player script is edited, the first subsequent event triggered on the player will also trigger this event. Because the {@link UpdateEvent} event is triggered every 10 game ticks, this event is triggered at most 10 game ticks after the script is edited.</p>
 	 * <p>This event is not cancelable.</p>
 	 */
 	public static class InitEvent extends PlayerEvent {
@@ -675,7 +675,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 		 * <tr><td>161</td><td>World 1</td></tr>
 		 * <tr><td>162</td><td>World 2</td></tr>
 		 * </tbody></table>
-		 * <p>For Minecraft version 1.12.2 and below, check <a href="https://minecraft.wiki/w/Key_codes#Before_1.13">The Minecraft wiki</a> for possible values.</p>
+		 * <p>For Minecraft version 1.12.2 and below, check <a href="https://minecraft.wiki/w/Key_codes#Before_1.13">Minecraft wiki</a> for possible values.</p>
 		 */
 		public final int key;
 		/**
@@ -729,7 +729,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 		/**
 		 * <p>The key released.</p>
 		 * <p>For Minecraft version 1.13 and above, check {@link KeyPressedEvent#key} for possible values.</p>
-		 * <p>For Minecraft version 1.12.2 and below, check <a href="https://minecraft.wiki/w/Key_codes#Before_1.13">The Minecraft wiki</a> for possible values.</p>
+		 * <p>For Minecraft version 1.12.2 and below, check <a href="https://minecraft.wiki/w/Key_codes#Before_1.13">Minecraft wiki</a> for possible values.</p>
 		 */
 		public final int key;
 		/**
@@ -836,7 +836,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 	/**
 	 * <p>
 	 * Hook function name: <code>playSound</code><br />
-	 * Triggered when a sound is being played to the player.
+	 * Triggered when a sound is played to the player.
 	 * </p>
 	 * <p>This event is not cancelable.</p>
 	 *
