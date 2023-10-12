@@ -39,8 +39,10 @@ public class NpcEvent extends CustomNPCsEvent{
 	/**
 	 * <p>
 	 * Hook function name: <code>init</code><br />
-	 * Triggered when the NPC is created, edited, loaded, reset, or respawned.
+	 * Triggered when the NPC is created, edited, loaded, reset, respawned, or when the NPC travels across dimensions, or 10 game ticks (0.5 seconds expected) after the NPC travels from the End to Overworld, or <em>at most</em> 10 game ticks after its script is edited.
 	 * </p>
+	 * <p>After the script on the NPC is edited, the first subsequent event triggerd on the NPC will also trigger this event. Because the {@link UpdateEvent} event is triggered every 10 game ticks, this event is triggered at most 10 game ticks after the script is edited.</p>
+	 * <p>This event is triggered twice after the NPC travels from the End to Overworld, first immediately, and then again 10 game ticks later.</p>
 	 * <p>This event is not cancelable.</p>
 	 */
 	public static class InitEvent extends NpcEvent{
@@ -58,7 +60,7 @@ public class NpcEvent extends CustomNPCsEvent{
 	 * Hook function name: <code>tick</code><br />
 	 * Triggered every 10 game ticks (0.5 seconds expected.)
 	 * </p>
-	 * <p>This event is first triggered 10 game ticks after the NPC is created or loaded. It keeps being triggered until the NPC is despawned or unloaded. Note that it also keeps being triggered after the NPC dies but with respawn enabled.</p>
+	 * <p>This event is first triggered immediately when the NPC is created, is loaded, or travels from the End to Overworld, or 9 game ticks (0.45 seconds expected) after the NPC travels across other dimensions if the NPC is not unloaded. It keeps being triggered until the NPC is despawned or unloaded. Note that it also keeps being triggered after the NPC dies but with respawn enabled.</p>
 	 * <p>This event is not cancelable.</p>
 	 */
 	public static class UpdateEvent extends NpcEvent{
