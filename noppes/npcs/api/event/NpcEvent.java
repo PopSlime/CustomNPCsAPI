@@ -219,7 +219,7 @@ public class NpcEvent extends CustomNPCsEvent{
 	/**
 	 * <p>
 	 * Hook function name: <code>meleeAttack</code><br />
-	 * Triggered when the NPC is going to do a melee attack.
+	 * Triggered when the NPC does a melee attack.
 	 * </p>
 	 * <p>Canceling this event prevents the melee attack from being done.</p>
 	 */
@@ -358,6 +358,10 @@ public class NpcEvent extends CustomNPCsEvent{
 		 */
 		public final int id;
 		
+		/**
+		 * <p>Creates an instance of the {@link TimerEvent} class.</p>
+		 * <p>Scripters should not use this constructor.</p>
+		 */
 		public TimerEvent(ICustomNpc npc, int id) {
 			super(npc);
 			this.id = id;
