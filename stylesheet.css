@@ -680,8 +680,11 @@ main, nav, header, footer, section {
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 ul.ui-autocomplete {
-	position:fixed;
-	z-index:999999;
+	position: fixed;
+	z-index: 999999;
+	/* Append */
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 ul.ui-autocomplete  li {
 	float:left;
@@ -690,6 +693,11 @@ ul.ui-autocomplete  li {
 }
 .result-highlight {
 	font-weight:bold;
+}
+/* Append */
+.ui-widget .ui-state-active, .ui-widget.ui-widget-content .ui-state-active, .ui-widget.ui-widget-header .ui-state-active {
+	border: none;
+	color: #212121;
 }
 #search-input {
 	background-image:url('resources/glass.png');
@@ -703,18 +711,19 @@ ul.ui-autocomplete  li {
 	width: 300px;
 }
 #reset-button {
-	background-color: rgb(255,255,255);
-	background-image:url('resources/x.png');
-	background-position:center;
-	background-repeat:no-repeat;
-	background-size:12px;
-	border:0 none;
-	width:16px;
-	height:16px;
-	position:relative;
-	left:-4px;
-	top:-4px;
-	font-size:0px;
+	/*background-color: rgb(255,255,255);*/
+	background-color: transparent;
+	background-image: url('resources/x.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 12px;
+	border: 0 none;
+	width: 16px;
+	height: 16px;
+	position: relative;
+	left: -4px;
+	top: -4px;
+	font-size: 0px;
 }
 .watermark {
 	color:#545454;
@@ -1022,7 +1031,7 @@ table.striped > tbody > tr > th {
 		background-color: #111;
 	}
 	.odd-row-color, .odd-row-color .table-header {
-		background-color: #333;
+		background-color: #222;
 	}
 	.block {
 		color: #ccc;
@@ -1036,7 +1045,11 @@ table.striped > tbody > tr > th {
 		background: #111;
 		color: #ccc;
 	}
-	.watermark {
+	#search-input {
+		background-color: #222;
+		color: white;
+	}
+	#search-input.watermark {
 		color: #bbb;
 	}
 	.summary section[class$="-summary"], .details section[class$="-details"],
