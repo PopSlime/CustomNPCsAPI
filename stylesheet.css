@@ -11,6 +11,10 @@
  * HTML element throughout the page.
  */
 
+/* Append */
+html {
+	scroll-padding-top: 80px;
+}
 body {
 	background-color:#ffffff;
 	color:#353833;
@@ -950,6 +954,14 @@ table.striped > tbody > tr > th {
 	}
 }
 
+/**
+ * Append
+ * :target
+ */
+:target {
+	filter: drop-shadow(0 0 4px orange);
+}
+
 @media screen and (prefers-color-scheme: dark) {
 	body {
 		background-color: #000;
@@ -1084,5 +1096,8 @@ table.striped > tbody > tr > th {
 	}
 	table.striped > tbody > tr > th, table.striped > tbody > tr > td {
 		border-color: gray;
+	}
+	:target {
+		filter: drop-shadow(0 0 4px yellow);
 	}
 }
