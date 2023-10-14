@@ -125,6 +125,7 @@ public class NpcEvent extends CustomNPCsEvent{
 	 * Hook function name: <code>interact</code><br />
 	 * Triggered when a player interacts (default control: mouse right click) with the NPC.
 	 * </p>
+	 * <p>This event is not triggered if the player is interacting with the NPC with an Npc Wand, a Mob Cloner, an Npc Pather, a Mounter, or a Scripter in their main hand.</p>
 	 * <p>Canceling this event blocks the original interaction that the NPC would have done.</p>
 	 */
 	@Cancelable
