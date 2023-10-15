@@ -13,6 +13,8 @@ import noppes.npcs.api.entity.IPlayer;
 /**
  * <p>Represents an event triggered on scripted blocks (including scripted doors.)</p>
  * <p>Must be listened in a block script.</p>
+ *
+ * <p>Prior to 1.11.2(29oct17), this class directly inherits from the Forge <code>Event</code> class.</p>
  */
 public class BlockEvent extends CustomNPCsEvent {
 	/**
@@ -222,6 +224,8 @@ public class BlockEvent extends CustomNPCsEvent {
 	public static class NeighborChangedEvent extends BlockEvent{
 		/**
 		 * <p>The position of the changed neighbor block.</p>
+		 *
+		 * @since 1.12.2-08Jan20snapshot
 		 */
 		public final IPos changedPos;
 		/**
@@ -300,6 +304,8 @@ public class BlockEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>The {@link PlayerEvent.BreakEvent} is triggered before this event, and canceling that event prevents this event from being triggered.</p>
 	 * <p>Canceling this event prevents the block from being destroyed.</p>
+	 *
+	 * <p>Prior to 1.10.2(21jul17) or 1.11.2(29oct17), this event is not cancelable.</p>
 	 */
 	@Cancelable
 	public static class HarvestedEvent extends BlockEvent{
@@ -346,6 +352,8 @@ public class BlockEvent extends CustomNPCsEvent {
 	 * Triggered when a timer on the scripted block is done.
 	 * </p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.8.9(29oct16)
 	 *
 	 * @see noppes.npcs.api.block.IBlockScripted#getTimers()
 	 * @see noppes.npcs.api.block.IBlockScriptedDoor#getTimers()

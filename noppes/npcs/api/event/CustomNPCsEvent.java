@@ -6,6 +6,8 @@ import noppes.npcs.api.NpcAPI;
 
 /**
  * <p>Represents an event dispatched by CNPC to the scripts.</p>
+ *
+ * @since 1.11.2(29oct17)
  */
 public class CustomNPCsEvent extends Event {
 	/**

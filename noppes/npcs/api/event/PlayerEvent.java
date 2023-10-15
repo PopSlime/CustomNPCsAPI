@@ -17,6 +17,11 @@ import noppes.npcs.api.item.IItemStack;
 /**
  * <p>Represents an event triggered on players.</p>
  * <p>Must be listened in a player script.</p>
+ *
+ * <p>Prior to 1.11.2(29oct17), this class directly inherits from the Forge <code>Event</code> class.</p>
+ *
+ * @since 1.10.2(21jul17)
+ * @since 1.11.2(29oct17)
  */
 public class PlayerEvent extends CustomNPCsEvent {
 	/**
@@ -39,6 +44,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>After the player script is edited, the first subsequent event triggered on the player will also trigger this event. Because the {@link UpdateEvent} event is triggered every 10 game ticks, this event is triggered at most 10 game ticks after the script is edited.</p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	public static class InitEvent extends PlayerEvent {
 		/**
@@ -57,6 +65,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>This event is first triggered immediately when the player joins the world, respawns, or travels across dimensions. Note that it also keeps being triggered after the player dies, until the death animation finishes.</p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	public static class UpdateEvent extends PlayerEvent {
 		/**
@@ -76,6 +87,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * <p>This event is not triggered if the player interacts with the air with an empty main hand.</p>
 	 * <p>Note that if the player interacts with a block or an entity with an item in their main hand, the interaction with the item will not be triggered.</p>
 	 * <p>Canceling this event blocks the original interaction.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	@Cancelable
 	public static class InteractEvent extends PlayerEvent {
@@ -118,6 +132,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player starts destroying (default control: mouse left click) a block, attacks (default control: mouse left click) an entity or the air.
 	 * </p>
 	 * <p>Canceling this event prevents the block from being destroyed or the attack from being done. Canceling this event has no effect if the player is attacking the air.</p>
+	 *
+	 * @since 1.12.2-15mar18snapshot
 	 */
 	@Cancelable
 	public static class AttackEvent extends PlayerEvent {
@@ -147,6 +163,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 		/**
 		 * <p>The damage source to be applied to the {@link target} entity.</p>
 		 * <p>The value of this field is <code>null</code> if {@link type} is <code>0</code> or <code>1</code>.</p>
+		 *
+		 * @since 1.16.5-14Nov21snapshot
+		 * @since 1.12.2-19Jan22snapshot
 		 */
 		public final IDamageSource damageSource;
 		
@@ -179,6 +198,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player is done destroying (default control: mouse left click) a block.
 	 * </p>
 	 * <p>Canceling this event prevents the block from being destroyed.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	@Cancelable
 	public static class BreakEvent extends PlayerEvent {
@@ -209,6 +231,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player throws an item stack.
 	 * </p>
 	 * <p>Canceling this event prevents the item entity from being spawned, but the item will not be returned to the player.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	@Cancelable
 	public static class TossEvent extends PlayerEvent {
@@ -233,6 +258,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player picks up an item stack.
 	 * </p>
 	 * <p>Canceling this event prevents the item from being picked up.</p>
+	 *
+	 * @since 1.12.2-15mar18snapshot
 	 */
 	@Cancelable
 	public static class PickUpEvent extends PlayerEvent {
@@ -258,6 +285,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>Unlike the {@link ContainerClosed} event, this event is not triggered when the player opens their inventory.</p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	public static class ContainerOpen extends PlayerEvent {
 		/**
@@ -282,6 +312,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>Unlike the {@link ContainerOpen} event, this event is triggered when the player closes their inventory.</p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	public static class ContainerClosed extends PlayerEvent {
 		/**
@@ -305,6 +338,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player deals damage to an entity.
 	 * </p>
 	 * <p>Canceling this event prevents the damage from being applied.</p>
+	 *
+	 * @since 1.11.2(29oct17)
 	 */
 	@Cancelable
 	public static class DamagedEntityEvent extends PlayerEvent {
@@ -343,6 +378,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * <p>This event is triggered even if the bow is not charged enough for an arrow to be shot.</p>
 	 * <p>This event is not triggered if the player stops charging a bow by switching to another hotbar slot.</p>
 	 * <p>Canceling this event prevents the arrow from being shot, if one is to be shot.</p>
+	 *
+	 * @since 1.11.2(29oct17)
 	 */
 	@Cancelable
 	public static class RangedLaunchedEvent extends PlayerEvent {
@@ -362,11 +399,16 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player dies.
 	 * </p>
 	 * <p>This event is cancelable, but canceling this event has no effect.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	@Cancelable
 	public static class DiedEvent extends PlayerEvent {
 		/**
 		 * <p>The damage source that causes the death.</p>
+		 *
+		 * <p>Prior to 1.11.2(29oct17), this field is named <code>mcDamageSource</code>, and the type of this field is <code>net.minecraft.util.DamageSource</code> (refactored to {@link DamageSource}.)</p>
 		 */
 		public final IDamageSource damageSource;
 		
@@ -399,6 +441,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player kills an entity.
 	 * </p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	public static class KilledEntityEvent extends PlayerEvent {
 		/**
@@ -422,11 +467,16 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player is damaged.
 	 * </p>
 	 * <p>Canceling this event prevents the damage from being applied.</p>
+	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
 	 */
 	@Cancelable
 	public static class DamagedEvent extends PlayerEvent {
 		/**
 		 * <p>The damage source.</p>
+		 *
+		 * <p>Prior to 1.11.2(29oct17), this field is named <code>mcDamageSource</code>, and the type of this field is <code>net.minecraft.util.DamageSource</code> (refactored to {@link DamageSource}.)</p>
 		 */
 		public final IDamageSource damageSource;
 		/**
@@ -463,6 +513,9 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>This event is not cancelable.</p>
 	 *
+	 * @since 1.10.2(21jul17)
+	 * @since 1.11.2(29oct17)
+	 *
 	 * @see IPlayer#getTimers()
 	 */
 	public static class TimerEvent extends PlayerEvent {
@@ -487,6 +540,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player logs in.
 	 * </p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.11.2(29oct17)
 	 */
 	public static class LoginEvent extends PlayerEvent {
 		/**
@@ -504,6 +559,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * Triggered when the player logs out.
 	 * </p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.11.2(29oct17)
 	 */
 	public static class LogoutEvent extends PlayerEvent {
 		/**
@@ -522,10 +579,14 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>This event is not triggered when the player loses their experiences because of death.</p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.12.2-25apr18snapshot
 	 */
 	public static class LevelUpEvent extends PlayerEvent {
 		/**
 		 * <p>The amount of level decreasing. A negative value indicates that the level increases.</p>
+		 *
+		 * <p>Prior to 1.12.2-07sep18snapshot, this field is private.</p>
 		 */
 		public final int change;
 		
@@ -546,6 +607,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>Prior to 1.16.5.20220506snapshot, this event is triggered when the player releases a key, only if the key has been held for less than 0.5 second, and no other keys (except the ignored keys) were pressed down while it is being held, and no GUI is opened by pressing the key. The ignored keys are the two Control keys, the two Shift keys, the two Menu (Alt) keys, and the two Meta (Windows) keys. They also does not trigger this event.</p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.12.2-07sep18snapshot
 	 */
 	public static class KeyPressedEvent extends PlayerEvent {
 		/**
@@ -782,6 +845,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>This event is not triggered by messages sent with the <code>/say</code> command.</p>
 	 * <p>Canceling this event prevents the message from being sent.</p>
+	 *
+	 * @since 1.11.2(29oct17)
 	 */
 	@Cancelable
 	public static class ChatEvent extends PlayerEvent {
@@ -807,6 +872,8 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>If the faction point is changed before it is initialized, this event will be triggered twice, first for initialization, and later for the change.</p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.12.2-15mar18snapshot
 	 */
 	public static class FactionUpdateEvent extends PlayerEvent {
 		/**
@@ -845,7 +912,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 	 * </p>
 	 * <p>This event is not cancelable.</p>
 	 *
-	 * @since 1.16.5.20220524snapshot
+	 * @since 1.16.5.20220514snapshot
 	 */
 	public static class PlaySoundEvent extends PlayerEvent {
 		/**

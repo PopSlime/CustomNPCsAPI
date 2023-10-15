@@ -21,6 +21,8 @@ import noppes.npcs.api.entity.IPlayer;
 /**
  * <p>Represents an event triggered on NPCs.</p>
  * <p>Must be listened in an NPC script.</p>
+ *
+ * <p>Prior to 1.11.2(29oct17), this class directly inherits from the Forge <code>Event</code> class.</p>
  */
 public class NpcEvent extends CustomNPCsEvent{
 	/**
@@ -84,7 +86,7 @@ public class NpcEvent extends CustomNPCsEvent{
 	public static class TargetEvent extends NpcEvent{
 		/**
 		 * <p>The entity targeted.</p>
-		 * <p>Setting this field will cause the NPC to target the set entity (or to lose target if set to <code>null</code>) instead.</p>
+		 * <p>Setting this field causes the NPC to target the set entity (or to lose target if set to <code>null</code>) instead.</p>
 		 */
 		public IEntityLiving entity;
 		/**
@@ -132,6 +134,8 @@ public class NpcEvent extends CustomNPCsEvent{
 	public static class InteractEvent extends NpcEvent{
 		/**
 		 * <p>The player interacting with the NPC.</p>
+		 *
+		 * <p>Prior to 1.8.9(29oct16), the type of this field is <code>net.minecraft.entity.player.EntityPlayer</code> (refactored to {@link Player}.)</p>
 		 */
 		public final IPlayer player;
 		/**
@@ -154,6 +158,8 @@ public class NpcEvent extends CustomNPCsEvent{
 	public static class DiedEvent extends NpcEvent{
 		/**
 		 * <p>The damage source that causes the death.</p>
+		 *
+		 * <p>Prior to 1.11.2(29oct17), this field is named <code>mcDamageSource</code>, and the type of this field is <code>net.minecraft.util.DamageSource</code> (refactored to {@link DamageSource}.)</p>
 		 */
 		public final IDamageSource damageSource;
 		
@@ -170,17 +176,23 @@ public class NpcEvent extends CustomNPCsEvent{
 		
 		/**
 		 * <p>The items to be dropped from the NPC.</p>
-		 * <p>Setting this field will change the dropped items.</p>
+		 * <p>Setting this field changes the dropped items.</p>
+		 *
+		 * @since 1.12.2-08Jan20snapshot
 		 */
 		public IItemStack[] droppedItems;
 		/**
 		 * <p>The amount of experiences to be dropped from the NPC.</p>
-		 * <p>Setting this field will change the dropped amount of experiences.</p>
+		 * <p>Setting this field changes the dropped amount of experiences.</p>
+		 *
+		 * @since 1.12.2-08Jan20snapshot
 		 */
 		public int expDropped;
 		/**
 		 * <p>The death line to be said by the NPC.</p>
-		 * <p>Setting this field will change the said line (or blocks the line if set to <code>null</code>.)</p>
+		 * <p>Setting this field changes the said line (or blocks the line if set to <code>null</code>.)</p>
+		 *
+		 * @since 1.12.2-08Jan20snapshot
 		 */
 		public ILine line;
 		/**
@@ -253,6 +265,7 @@ public class NpcEvent extends CustomNPCsEvent{
 	 * Triggered when the NPC does a ranged attack by shooting projectiles.
 	 * </p>
 	 * <p>This event is not cancelable.</p>
+	 * <p>Prior to 1.12.2-09May19snapshot, this event is cancelable, and canceling this event prevents the projectiles from being shot.</p>
 	 */
 	public static class RangedLaunchedEvent extends NpcEvent{
 		/**
@@ -266,7 +279,9 @@ public class NpcEvent extends CustomNPCsEvent{
 		public float damage;
 		/**
 		 * <p>The list of the projectiles shot.</p>
-		 * <p>Modifying the list itself has no effect.</p>
+		 * <p>Setting this field or modifying the list itself has no effect.</p>
+		 *
+		 * @since 1.12.2-09May19snapshot
 		 */
 		public List<IProjectile> projectiles = new ArrayList<IProjectile>();
 		
@@ -292,11 +307,15 @@ public class NpcEvent extends CustomNPCsEvent{
 	public static class DamagedEvent extends NpcEvent{
 		/**
 		 * <p>The damage source.</p>
+		 *
+		 * <p>Prior to 1.11.2(29oct17), this field is named <code>mcDamageSource</code>, and the type of this field is <code>net.minecraft.util.DamageSource</code> (refactored to {@link DamageSource}.)</p>
 		 */
 		public final IDamageSource damageSource;
 		/**
 		 * <p>The ultimate source entity of the damage that causes the death.</p>
 		 * <p>For an indirect damage, this is the indirect source of the damage.</p>
+		 *
+		 * <p>Prior to 1.10.2(21jul17) or 1.11.2(29oct17), the type of this field is <code>noppes.npcs.api.entity.IEntityLivingBase</code> (refactored to {@link IEntityLiving}.)</p>
 		 */
 		public final IEntity source;
 		/**
@@ -350,6 +369,8 @@ public class NpcEvent extends CustomNPCsEvent{
 	 * Triggered when a timer on the NPC is done.
 	 * </p>
 	 * <p>This event is not cancelable.</p>
+	 *
+	 * @since 1.8.9(29oct16)
 	 *
 	 * @see ICustomNpc#getTimers()
 	 */
