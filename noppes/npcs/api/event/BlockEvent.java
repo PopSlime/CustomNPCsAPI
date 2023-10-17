@@ -261,7 +261,7 @@ public class BlockEvent extends CustomNPCsEvent {
 	 * Hook function name: <code>tick</code><br />
 	 * Triggered every 10 game ticks (0.5 seconds expected.)
 	 * </p>
-	 * <p>This event is first triggered immediately when the block is placed.</p>
+	 * <p>This event is first triggered immediately when the scripted block is placed.</p>
 	 * <p>This event is not cancelable.</p>
 	 */
 	public static class UpdateEvent extends BlockEvent{
