@@ -326,9 +326,9 @@ public class BlockEvent extends CustomNPCsEvent {
 	/**
 	 * <p>
 	 * Hook function name: <code>collide</code><br />
-	 * Triggered every game tick when an entity collides with the scripted block.
+	 * Triggered periodically when an entity collides with the scripted block.
 	 * </p>
-	 * <p>This event may be triggered multiple times with in a single game tick for an entity.</p>
+	 * <p>This event may be triggered multiple times within a single game tick for an entity.</p>
 	 * <p>This event is not cancelable.</p>
 	 */
 	public static class CollidedEvent extends BlockEvent{
