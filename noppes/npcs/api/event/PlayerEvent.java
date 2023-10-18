@@ -25,7 +25,7 @@ import noppes.npcs.api.item.IItemStack;
  */
 public class PlayerEvent extends CustomNPCsEvent {
 	/**
-	 * The subject player of the event.
+	 * <p>The subject player of the event.</p>
 	 */
 	public final IPlayer player;
 	

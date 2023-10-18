@@ -26,7 +26,7 @@ import noppes.npcs.api.entity.IPlayer;
  */
 public class NpcEvent extends CustomNPCsEvent{
 	/**
-	 * The subject NPC of the event.
+	 * <p>The subject NPC of the event.</p>
 	 */
 	public final ICustomNpc npc;
 

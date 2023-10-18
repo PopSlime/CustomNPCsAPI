@@ -18,7 +18,7 @@ import noppes.npcs.api.entity.IPlayer;
  */
 public class BlockEvent extends CustomNPCsEvent {
 	/**
-	 * The subject scripted block of the event.
+	 * <p>The subject scripted block of the event.</p>
 	 */
 	public IBlock block;
 	/**

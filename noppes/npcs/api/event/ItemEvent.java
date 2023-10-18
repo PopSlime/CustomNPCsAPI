@@ -15,7 +15,7 @@ import noppes.npcs.api.item.IItemScripted;
  */
 public class ItemEvent extends CustomNPCsEvent {
 	/**
-	 * The subject scripted item of the event.
+	 * <p>The subject scripted item of the event.</p>
 	 */
 	public IItemScripted item;
 	
