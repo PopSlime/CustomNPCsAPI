@@ -6,18 +6,51 @@ import noppes.npcs.api.IWorld;
 import noppes.npcs.api.entity.IEntity;
 
 /**
- * Called for most Forge events. For the events I use the forges name and make the first letter lowercase. <br>
- * Eg: <br>
- * - EntityEvent.EntityJoinLevelEvent becomes entityEventEntityJoinLevelEvent <br>
- * - PlayerEvent.StartTracking becomes playerEventStartTracking <br>
- * - etc <br>
- * 
- * Note that these events can change anytime and that I have no control over these. Use at own risk
- * 
+ * <p>
+ * Varied hook function name (see detailed description)<br />
+ * Represents an event triggered in the Forge script.
+ * </p>
+ * <p>Must be listened in a Forge script.</p>
+ * <h2>Events listened</h2>
+ * <p>This event is triggered when any forge event that meets all the following criteria is fired:</p>
+ * <ul>
+ * <li>the event class is in the <code>net.minecraftforge.event</code> package or one of its subpackages, excluding the <code>net.minecraftforge.event.terraingen</code> package;</li>
+ * <li>the event class is not assignable to any of the following classes:
+ * <ul>
+ * <li><code>net.minecraftforge.eventbus.api.GenericEvent</code></li>
+ * <li>{@link net.minecraftforge.event.entity.EntityEvent.EntityConstructing}</li>
+ * <li>{@link net.minecraftforge.event.world.WorldEvent.PotentialSpawns}</li>
+ * <li>{@link net.minecraftforge.event.TickEvent.ClientTickEvent}</li>
+ * <li>{@link net.minecraftforge.network.NetworkEvent.ClientCustomPayloadEvent}</li>
+ * <li>{@link net.minecraftforge.event.entity.player.ItemTooltipEvent}</li>
+ * </ul>
+ * </li>
+ * <li>the event class is public and not abstract.</li>
+ * </ul>
+ * <p>This event is also triggered when any forge event that meets all the following criteria is fired:</p>
+ * <ul>
+ * <li>the event class is in the <code>com.pixelmonmod.pixelmon.api.events</code> package or one of its subpackages;</li>
+ * <li>the event class is public and not abstract.</li>
+ * </ul>
+ * <h2>Hook function name</h2>
+ * <p>For a non-nested class, the hook function name is its name with the first letter uncapitalized.</p>
+ * <p>For a nested event class, the hook function name is the name of its parent class, with the first letter uncapitalized, joined with the name of the nested class itself.</p>
+ * <p>For example, use <code>function livingFallEvent(e) { }</code> to listen to the {@link net.minecraftforge.event.entity.living.LivingFallEvent} event; use <code>function livingEventLivingUpdateEvent(e) { }</code> to listen to the {@link net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent} event.</p>
+ * <h2>Note</h2>
+ * <p>The names of the fields and methods from the Minecraft code base are obfuscated, look up the corresponding "Searge" entry in <a href="https://mappings.cephx.dev/index.html">the mapping reference</a> to use those members.</p>
+ * <p>Due to a bug from one of the dependencies of CNPC, the path to Minecraft must contain no spaces for Forge script to work properly.</p>
+ * <p>Call {@link isCancelable()} to check if the event is cancelable.</p>
  */
 @Cancelable
 public class ForgeEvent extends CustomNPCsEvent {
+	/**
+	 * <p>The subject Forge event.</p>
+	 */
 	public final Event event;
+	/**
+	 * <p>Creates an instance of the {@link ForgeEvent} class.</p>
+	 * <p>Scripters should not use this constructor.</p>
+	 */
 	public ForgeEvent(Event event) {
 		this.event = event;
 	}
@@ -34,42 +67,65 @@ public class ForgeEvent extends CustomNPCsEvent {
 	public void setCanceled(boolean cancel) {
 		event.setCanceled(cancel);
 	}
-
+	
 	/**
-	 * init <br>
-	 * The init event has no forge event 
+	 * <p>
+	 * Hook function name: <code>init</code><br />
+	 * Triggered when the Forge script is initialized.
+	 * </p>
+	 * <p>The value of the {@link event} field is <code>null</code> for this event.</p>
 	 */
 	public static class InitEvent extends ForgeEvent {
+		/**
+		 * <p>Creates an instance of the {@link InitEvent} class.</p>
+		 * <p>Scripters should not use this constructor.</p>
+		 */
 		public InitEvent() {
 			super(null);
 		}
 	}
-
+	
 	/**
-	 * This event is used for every forge event which extends EntityEvent <br>
-	 * <a href="http://maven.thiakil.com/forge-1.12-javadoc/net/minecraftforge/event/entity/EntityEvent.html">EventyEvent</a> <br>
-	 * <a href="http://maven.thiakil.com/forge-1.12-javadoc/net/minecraftforge/event/entity/living/LivingEvent.html">LivingEvent</a> <br>
-	 * <a href="http://maven.thiakil.com/forge-1.12-javadoc/net/minecraftforge/event/entity/player/PlayerEvent.html">PlayerEvent</a>
+	 * <p>
+	 * Varied hook function name (see detailed description of {@link ForgeEvent})<br />
+	 * Triggered when an event whose class is assignable to {@link net.minecraftforge.event.entity.EntityEvent} is fired.
+	 * </p>
 	 */
 	@Cancelable
 	public static class EntityEvent extends ForgeEvent{
+		/**
+		 * <p>The subject entity of the event.</p>
+		 */
 		public final IEntity entity;
 		
+		/**
+		 * <p>Creates an instance of the {@link EntityEvent} class.</p>
+		 * <p>Scripters should not use this constructor.</p>
+		 */
 		public EntityEvent(net.minecraftforge.event.entity.EntityEvent event, IEntity entity) {
 			super(event);
 			this.entity = entity;
 		}
 		
 	}
-
+	
 	/**
-	 * This event is used for every forge event which extends LevelEvent <br>
-	 * <a href="http://maven.thiakil.com/forge-1.12-javadoc/net/minecraftforge/event/world/LevelEvent.html">LevelEvent</a>
+	 * <p>
+	 * Varied hook function name (see detailed description of {@link ForgeEvent})<br />
+	 * Triggered when an event whose class is assignable to {@link net.minecraftforge.event.world.WorldEvent} is fired.
+	 * </p>
 	 */
 	@Cancelable
 	public static class LevelEvent extends ForgeEvent{
+		/**
+		 * <p>The subject world of the event.</p>
+		 */
 		public final IWorld world;
 		
+		/**
+		 * <p>Creates an instance of the {@link LevelEvent} class.</p>
+		 * <p>Scripters should not use this constructor.</p>
+		 */
 		public LevelEvent(net.minecraftforge.event.world.WorldEvent event, IWorld world) {
 			super(event);
 			this.world = world;
