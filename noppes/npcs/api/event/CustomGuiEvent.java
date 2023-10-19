@@ -146,7 +146,7 @@ public class CustomGuiEvent extends CustomNPCsEvent {
 	@Cancelable
     public static class SlotClickEvent extends SlotEvent {
         /**
-         * <p>The control action that the player is done.</p>
+         * <p>The control action that the player has done.</p>
          * <p>Possible values are:</p>
          * <ul>
          * <li><code>0</code>, a keyboard key is pressed or the mouse left button is clicked;</li>
@@ -158,7 +158,7 @@ public class CustomGuiEvent extends CustomNPCsEvent {
          */
         public final int dragType;
         /**
-         * <p>The inventory action that the player is done.</p>
+         * <p>The inventory action that the player has done.</p>
          * <p>For all possible values, see {@link net.minecraft.world.inventory.ClickType}. The value of this field is one of the names of the enum constants.</p>
          */
         public final String clickType;
