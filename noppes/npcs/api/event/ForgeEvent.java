@@ -36,10 +36,14 @@ import noppes.npcs.api.entity.IEntity;
  * <p>For a non-nested class, the hook function name is its name with the first letter uncapitalized.</p>
  * <p>For a nested event class, the hook function name is the name of its parent class, with the first letter uncapitalized, joined with the name of the nested class itself.</p>
  * <p>For example, use <code>function livingFallEvent(e) { }</code> to listen to the {@link net.minecraftforge.event.entity.living.LivingFallEvent} event; use <code>function livingEventLivingUpdateEvent(e) { }</code> to listen to the {@link net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent} event.</p>
- * <h2>Note</h2>
+ * <h2>Notes</h2>
  * <p>The names of the fields and methods from the Minecraft code base are obfuscated, look up the corresponding "Searge" entry in <a href="https://mappings.cephx.dev/index.html">the mapping reference</a> to use those members.</p>
+ * <p>Prior to 1.18.2.20231008snapshot, the events must be canceled on this class instead of the Forge event itself, otherwise the canceled state will be overwritten.</p>
+ * <p>Prior to a certain version (to be added,) the instance passed as the parameter of the hook function is the Forge event itself instead of an instance of this class. Check this before get started.</p>
  * <p>Due to a bug from one of the dependencies of CNPC, the path to Minecraft must contain no spaces for Forge script to work properly.</p>
  * <p>Call {@link isCancelable()} to check if the event is cancelable.</p>
+ *
+ * @since 1.12.2-23jul18snapshot
  */
 @Cancelable
 public class ForgeEvent extends CustomNPCsEvent {
@@ -74,6 +78,8 @@ public class ForgeEvent extends CustomNPCsEvent {
 	 * Triggered when the Forge script is initialized.
 	 * </p>
 	 * <p>The value of the {@link event} field is <code>null</code> for this event.</p>
+	 *
+	 * @since 1.12.2-24jul18snapshot
 	 */
 	public static class InitEvent extends ForgeEvent {
 		/**
@@ -90,6 +96,8 @@ public class ForgeEvent extends CustomNPCsEvent {
 	 * Varied hook function name (see detailed description of {@link ForgeEvent})<br />
 	 * Triggered when an event whose class is assignable to {@link net.minecraftforge.event.entity.EntityEvent} is fired.
 	 * </p>
+	 *
+	 * @since 1.12.2-23jul18snapshot
 	 */
 	@Cancelable
 	public static class EntityEvent extends ForgeEvent{
@@ -114,6 +122,8 @@ public class ForgeEvent extends CustomNPCsEvent {
 	 * Varied hook function name (see detailed description of {@link ForgeEvent})<br />
 	 * Triggered when an event whose class is assignable to {@link net.minecraftforge.event.world.WorldEvent} is fired.
 	 * </p>
+	 *
+	 * @since 1.12.2-23jul18snapshot
 	 */
 	@Cancelable
 	public static class LevelEvent extends ForgeEvent{
