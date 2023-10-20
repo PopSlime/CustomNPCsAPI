@@ -65,7 +65,7 @@ public class ProjectileEvent extends CustomNPCsEvent {
 		 * <p>The target object that the projectile hits.</p>
 		 * <p>The type of this field depends on the value of {@link type}:</p>
 		 * <ul>
-		 * <li>if {@link type} is <code>0</code>, this is an instance of the {@link noppes.npcs.api.entity.IEntity} interface;</li>
+		 * <li>if {@link type} is <code>0</code>, this is an instance of the {@link net.minecraft.world.entity.Entity} class;</li>
 		 * <li>if {@link type} is <code>1</code>, this is an instance of the {@link noppes.npcs.api.block.IBlock} interface.</li>
 		 * </ul>
 		 */
