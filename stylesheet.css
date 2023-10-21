@@ -695,6 +695,11 @@ ul.ui-autocomplete  li {
 	clear:both;
 	width:100%;
 }
+/* Append */
+ul.ui-widget.ui-widget-content {
+	background: #fff;
+	color: #222;
+}
 .result-highlight {
 	font-weight:bold;
 }
