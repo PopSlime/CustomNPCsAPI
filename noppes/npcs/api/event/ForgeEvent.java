@@ -12,7 +12,7 @@ import noppes.npcs.api.entity.IEntity;
  * </p>
  * <p>Must be listened in a Forge script.</p>
  * <h2>Events listened</h2>
- * <p>This event is triggered when any forge event that meets all the following criteria is fired:</p>
+ * <p>This event is triggered when any Forge event that meets all the following criteria is fired:</p>
  * <ul>
  * <li>the event class is in the <code>net.minecraftforge.event</code> package or one of its subpackages, excluding the <code>net.minecraftforge.event.terraingen</code> package;</li>
  * <li>the event class is not assignable to any of the following classes:
@@ -27,7 +27,7 @@ import noppes.npcs.api.entity.IEntity;
  * </li>
  * <li>the event class is public and not abstract.</li>
  * </ul>
- * <p>This event is also triggered when any forge event that meets all the following criteria is fired:</p>
+ * <p>This event is also triggered when any Forge event that meets all the following criteria is fired:</p>
  * <ul>
  * <li>the event class is in the <code>com.pixelmonmod.pixelmon.api.events</code> package or one of its subpackages;</li>
  * <li>the event class is public and not abstract.</li>
