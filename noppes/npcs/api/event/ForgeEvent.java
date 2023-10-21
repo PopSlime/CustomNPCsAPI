@@ -34,7 +34,7 @@ import noppes.npcs.api.entity.IEntity;
  * </ul>
  * <h2>Hook function name</h2>
  * <p>For a non-nested class, the hook function name is its name with the first letter uncapitalized.</p>
- * <p>For a nested event class, the hook function name is the name of its parent class, with the first letter uncapitalized, joined with the name of the nested class itself.</p>
+ * <p>For a nested event class, the hook function name is the name of its enclosing class, with the first letter uncapitalized, joined with the name of the nested class itself.</p>
  * <p>For example, use <code>function livingFallEvent(e) { }</code> to listen to the {@link net.minecraftforge.event.entity.living.LivingFallEvent} event; use <code>function livingEventLivingUpdateEvent(e) { }</code> to listen to the {@link net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent} event.</p>
  * <h2>Notes</h2>
  * <p>The names of the fields and methods from the Minecraft code base are obfuscated, look up the corresponding "Searge" entry in <a href="https://mappings.cephx.dev/index.html">the mapping reference</a> to use those members.</p>
