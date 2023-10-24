@@ -40,7 +40,8 @@ import noppes.npcs.api.entity.IEntity;
  * <p>The names of the fields and methods from the Minecraft code base are obfuscated, look up the corresponding "Searge" entry in <a href="https://mappings.cephx.dev/index.html">the mapping reference</a> to use those members.</p>
  * <p>Prior to 1.18.2.20231008snapshot, the events must be canceled on this class instead of the Forge event itself, otherwise the canceled state will be overwritten.</p>
  * <p>Prior to a certain version (to be added,) the instance passed as the parameter of the hook function is the Forge event itself instead of an instance of this class. Check this before get started.</p>
- * <p>Due to a bug from one of the dependencies of CNPC, the path to Minecraft must contain no spaces for Forge script to work properly.</p>
+ * <p>Due to a bug from one of the dependencies of CNPC, the folder names in the path to Minecraft must contain only the <a href="https://www.rfc-editor.org/rfc/rfc3986.html#section-2.3">unreserved characters defined in RFC 3986</a> (specifically, uppercase letters <code>A</code>~<code>Z</code>, lowercase
+   letters <code>a</code>~<code>z</code>, decimal digits <code>0</code>~<code>9</code>, hyphen <code>-</code>, period <code>,</code>, underscore <code>_</code>, and tilde <code>~</code>) for Forge script to work properly. Other characters, including common characters like spaces, will cause Forge events fail to be registered.</p>
  * <p>Call {@link isCancelable()} to check if the event is cancelable.</p>
  *
  * @since 1.12.2-23jul18snapshot
