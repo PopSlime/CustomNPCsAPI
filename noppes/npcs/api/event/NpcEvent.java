@@ -343,7 +343,7 @@ public class NpcEvent extends CustomNPCsEvent{
 	/**
 	 * <p>
 	 * Hook function name: <code>collide</code><br />
-	 * Triggered every 4 game ticks (0.2 seconds expected) when another entity is within the hitbox of the NPC extended by 2 blocks in width and 1 block in height if the NPC is not riding an entity, or within the minimum hitbox that includes the hitboxes of both the NPC and the entity the NPC is riding, extended by 2 blocks in width.
+	 * Triggered every 4 game ticks (0.2 seconds expected) when the hitbox of another entity has intersection with the hitbox of the NPC extended by 2 blocks in width and 1 block in height if the NPC is not riding an entity, or with the minimum hitbox that includes the hitboxes of both the NPC and the entity the NPC is riding, extended by 2 blocks in width.
 	 * </p>
 	 * <p>This event may not be triggered immediately when an entity enters the said hitbox. CNPC checks every 4 game ticks so there can be a delay of maximum 4 game ticks.</p>
 	 * <p>If the NPC is not riding an entity, then the checked hitbox is the hitbox of the NPC extended by 2 blocks in width and 1 block in height. For example, if the hitbox of an NPC is 1 block * 1 block wide and 1 block high, then the checked hitbox is 3 blocks * 3 blocks wide and 2 blocks high.</p>
