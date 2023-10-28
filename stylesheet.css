@@ -968,6 +968,9 @@ table.striped > tbody > tr > th {
 }
 
 @media screen and (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
 	body {
 		background-color: #000;
 		color: #ddd;
