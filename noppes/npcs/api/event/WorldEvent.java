@@ -37,17 +37,19 @@ public class WorldEvent extends CustomNPCsEvent{
 	 * <li>if in a Forge script, {@link IWorld#trigger(int,java.lang.Object...)} is called;</li>
 	 * <li>the <code>/noppes script trigger</code> command is executed on the scripted object.</li>
 	 * </ul>
+	 * <p>Executing <code>/noppes script trigger &lt;id&gt; &lt;args&gt;</code> fires this event, with {@link #id} set to the ID specified by <code>&lt;id&gt;</code> and {@link #arguments} set to the space-separated argument list specified by <code>&lt;args&gt;</code>. For examples, see the description of {@link #arguments}.</p>
 	 * <p>This event is not cancelable.</p>
 	 *
-	 * <p>Prior to 1.16.5.20220607snapshot, this event can only be triggered via command, and its hook function name is <code>scriptCommand</code>.</p>
+	 * <p>Prior to 1.16.5.20220607snapshot, this event can only be triggered via the command <code>/noppes script run</code>, and its hook function name is <code>scriptCommand</code>. Executing <code>/noppes script run &lt;args&gt;</code> fires this event, with {@link #arguments} set to the space-separated argument list specified by <code>&lt;args&gt;</code>. For examples, see the description of {@link #arguments}.</p>
 	 *
 	 * @since 1.12.2-09May19snapshot
 	 */
 	public static class ScriptTriggerEvent extends WorldEvent{
 		/**
 		 * <p>A list of arguments passed from the calling method or the command.</p>
+		 * <p>For example, calling <code>trigger(id, 123, "foo")</code> sets this field to <code>[123, "foo"]</code>; executing <code>/noppes script trigger id 123 foo</code> sets this field to <code>["123", "foo"]</code>.</p>
 		 *
-		 * <p>Prior to 1.16.5.20220607snapshot, the type of this field is <code>{@link String}[]</code>.</p>
+		 * <p>Prior to 1.16.5.20220607snapshot, the type of this field is <code>{@link String}[]</code>. Executing <code>/noppes script run 123 foo</code> sets this field to <code>["123", "foo"]</code>.</p>
 		 */
 		public final Object[] arguments;
 		/**
