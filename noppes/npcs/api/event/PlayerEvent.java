@@ -743,7 +743,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 		 * <tr><td>162</td><td>World 2</td></tr>
 		 * </tbody>
 		 * </table>
-		 * <p>For Minecraft version 1.12.2 and below, check <a href="https://minecraft.wiki/w/Key_codes#Before_1.13">Minecraft Wiki</a> for possible values.</p>
+		 * <p>For Minecraft version 1.12.2 and below, check the <a href="https://minecraft.wiki/w/Key_codes#Before_1.13">Minecraft Wiki</a> for possible values.</p>
 		 */
 		public final int key;
 		/**
@@ -797,7 +797,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 		/**
 		 * <p>The key released.</p>
 		 * <p>For Minecraft version 1.13 and above, check {@link KeyPressedEvent#key} for possible values.</p>
-		 * <p>For Minecraft version 1.12.2 and below, check <a href="https://minecraft.wiki/w/Key_codes#Before_1.13">Minecraft Wiki</a> for possible values.</p>
+		 * <p>For Minecraft version 1.12.2 and below, check the <a href="https://minecraft.wiki/w/Key_codes#Before_1.13">Minecraft Wiki</a> for possible values.</p>
 		 */
 		public final int key;
 		/**

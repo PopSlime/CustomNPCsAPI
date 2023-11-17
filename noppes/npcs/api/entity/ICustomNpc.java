@@ -129,6 +129,7 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 	
 	/**
 	 * <p>Gets the owner entity of the custom NPC.</p>
+	 * @return The owner entity of the custom NPC, or <code>null</code>.
 	 * <p>This method uses the following logic:</p>
 	 * <ol>
 	 * <li>If the custom NPC is instructed by a scene command to follow an entity, the followed entity is returned.</li>
@@ -138,7 +139,6 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 	 * <li>Otherwise, <code>null</code> is returned.</li>
 	 * </ol>
 	 * <p>If the custom NPC has a Follower or Companion role and a Follower job at the same time, the followed entity specified in the Follower job settings is never returned.</p>
-	 * @return The owner entity of the custom NPC, or <code>null</code>.
 	 *
 	 * @since 1.12.2-05Jan19snapshot
 	 */
@@ -159,18 +159,18 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 	
 	/**
 	 * <p>Says a message to the players that can be seen by the custom NPC and whose hitboxes have intersection with the hitbox of the custom NPC extended by 40 blocks in width and height.</p>
-	 * <p>If <code>message</code> is an empty string, no message will be sent.</p>
 	 * <p>If <code>NpcSpeachTriggersChatEvent</code> is set to <code>true</code> in <code>CustomNpcs.cfg</code>, a {@link net.minecraftforge.event.ServerChatEvent} will be fired before the message is sent, and canceling that event prevents the message from being sent.</p>
 	 * @param message A non-null message to be said.
+	 * <p>If <code>message</code> is an empty string, no message will be sent.</p>
 	 */
 	public void say(String message);
 	
 	/**
 	 * <p>Says a message to a player.</p>
-	 * <p>If <code>message</code> is an empty string, no message will be sent.</p>
-	 * <p>If the custom NPC cannot see the player, no message will be sent.</p>
 	 * @param player A player to say the message to.
+	 * <p>If the custom NPC cannot see the player, no message will be sent.</p>
 	 * @param message A non-null message to be said.
+	 * <p>If <code>message</code> is an empty string, no message will be sent.</p>
 	 *
 	 * @since 1.8.9(29oct16)
 	 */
@@ -178,10 +178,10 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 
 	/**
 	 * <p>Shoots an item stack as a projectile towards a target.</p>
-	 * <p><code>accuracy</code> is clamped between 1 (inclusive) and 100 (inclusive.)</p>
 	 * @param target The target entity.
 	 * @param item The item stack to be shot.
 	 * @param accuracy The accuracy of the shot.
+	 * <p><code>accuracy</code> is clamped between 1 (inclusive) and 100 (inclusive.)</p>
 	 * @return The shot projectile entity.
 	 *
 	 * <p>Prior to 1.12.2-07jul18snapshot, this method returns <code>void</code>.</p>
@@ -194,12 +194,12 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 	
 	/**
 	 * <p>Shoots an item stack as a projectile towards a position.</p>
-	 * <p><code>accuracy</code> is clamped between 1 (inclusive) and 100 (inclusive.)</p>
 	 * @param x The X coordinate of the target position.
 	 * @param y The Y coordinate of the target position.
 	 * @param z The Z coordinate of the target position.
 	 * @param item The item stack to be shot.
 	 * @param accuracy The accuracy of the shot.
+	 * <p><code>accuracy</code> is clamped between 1 (inclusive) and 100 (inclusive.)</p>
 	 * @return The shot projectile entity.
 	 *
 	 * <p>Prior to 1.12.2-07jul18snapshot, this method returns <code>void</code>.</p>
@@ -222,9 +222,9 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 
 	/**
 	 * <p>Assigns a dialog to a dialog slot of the custom NPC.</p>
-	 * <p>If <code>dialog</code> is <code>null</code>, the dialog slot will be cleared.</p>
 	 * @param slot The index of the dialog slot.
 	 * @param dialog The dialog to be assigned.
+	 * <p>If <code>dialog</code> is <code>null</code>, the dialog slot will be cleared.</p>
 	 * @throws noppes.npcs.api.CustomNPCsException <code>slot</code> is less than <code>0</code> or greater than <code>11</code>.
 	 *
 	 * @since 1.11.2(29oct17)
