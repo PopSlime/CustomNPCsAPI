@@ -26,6 +26,8 @@ public interface ITimers {
 	
 	/**
 	 * @return Returns false if there was no timer with the giver id
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public boolean stop(int id);
 	

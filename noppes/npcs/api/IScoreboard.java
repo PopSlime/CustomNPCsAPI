@@ -21,6 +21,8 @@ public interface IScoreboard {
 	 * @param objective Scoreboard objective name (1-16 chars)
 	 * @param criteria The criteria see http://minecraft.gamepedia.com/Scoreboard#Objectives
 	 * @return Returns the created ScoreboardObjective
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public IScoreboardObjective addObjective(String objective, String criteria);
 
@@ -39,6 +41,9 @@ public interface IScoreboard {
 	public boolean hasTeam(String name);
 
 
+	/**
+	 * <i class="method-mutating"></i>
+	 */
 	public IScoreboardTeam addTeam(String name);
 
 

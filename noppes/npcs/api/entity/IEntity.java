@@ -98,6 +98,9 @@ public interface IEntity<T extends Entity> {
 	
 	public boolean isSprinting();
 	
+	/**
+	 * <i class="method-mutating"></i>
+	 */
 	public IEntityItem dropItem(IItemStack item);
 	
 	public boolean inWater();

@@ -5,6 +5,9 @@ import noppes.npcs.api.entity.IEntity;
 
 public interface ICloneHandler {
 
+	/**
+	 * <i class="method-mutating"></i>
+	 */
 	public IEntity spawn(double x, double y, double z, int tab, String name, IWorld world);
 
 	public IEntity get(int tab, String name, IWorld world);

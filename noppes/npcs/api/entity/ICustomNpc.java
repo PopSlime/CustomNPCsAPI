@@ -184,6 +184,8 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 	 * <p><code>accuracy</code> is clamped between 1 (inclusive) and 100 (inclusive.)</p>
 	 * @return The shot projectile entity.
 	 *
+	 * <i class="method-mutating"></i>
+	 *
 	 * <p>Prior to 1.12.2-07jul18snapshot, this method returns <code>void</code>.</p>
 	 *
 	 * @throws noppes.npcs.api.CustomNPCsException <code>target</code> or <code>item</code> is <code>null</code>.
@@ -201,6 +203,8 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 	 * @param accuracy The accuracy of the shot.
 	 * <p><code>accuracy</code> is clamped between 1 (inclusive) and 100 (inclusive.)</p>
 	 * @return The shot projectile entity.
+	 *
+	 * <i class="method-mutating"></i>
 	 *
 	 * <p>Prior to 1.12.2-07jul18snapshot, this method returns <code>void</code>.</p>
 	 *
@@ -257,6 +261,8 @@ public interface ICustomNpc<T extends Mob> extends IMob<T> {
 	 * <p>The commands are run under the UUID <code>c9c843f8-4cb1-4c82-aa61-e264291b7bd6</code> and the name <code>[customnpcs]</code>.</p>
 	 * @param command The command to be executed.
 	 * @return The command output.
+	 *
+	 * <i class="method-mutating"></i>
 	 *
 	 * <p>Prior to 1.11.2(29oct17) or 1.10.2(21jul17), this method returns <code>void</code>.</p>
 	 *

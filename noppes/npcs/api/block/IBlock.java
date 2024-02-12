@@ -48,12 +48,16 @@ public interface IBlock {
 	/*
 	 * @param name Sets the block to replace this one using the blocks name
 	 * @return Returns the new block
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	IBlock setBlock(String name);
 
 	/**
 	 * @param block Sets the block to replace this one
 	 * @return Returns the new block
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	IBlock setBlock(IBlock block);
 	

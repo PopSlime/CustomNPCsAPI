@@ -102,6 +102,8 @@ public interface IPlayer<T extends ServerPlayer> extends IEntityLiving<T> {
 	 * @param item The Item type to be removed
 	 * @param amount How many will be removed
 	 * @return Returns true if the items were removed succesfully. Returns false incase a bigger amount than what the player has was given
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public boolean removeItem(IItemStack item, int amount);
 
@@ -109,6 +111,8 @@ public interface IPlayer<T extends ServerPlayer> extends IEntityLiving<T> {
 	 * @param id The items name
 	 * @param amount How many will be removed
 	 * @return Returns true if the items were removed succesfully. Returns false incase a bigger amount than what the player has was given or item doesnt exist
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public boolean removeItem(String id, int amount);
 
@@ -117,6 +121,8 @@ public interface IPlayer<T extends ServerPlayer> extends IEntityLiving<T> {
 	/**
 	 * @param item Item to be added
 	 * @return Returns whether or not it gave the item succesfully
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public boolean giveItem(IItemStack item);
 	
@@ -125,6 +131,8 @@ public interface IPlayer<T extends ServerPlayer> extends IEntityLiving<T> {
 	 * @param id The items name
 	 * @param amount The amount of the item to be added
 	 * @return Returns whether or not it gave the item succesfully
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public boolean giveItem(String id, int amount);
 

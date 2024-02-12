@@ -8,6 +8,8 @@ public interface IJobSpawner {
 	 * Npc needs to be attacking something or be set to Despawn Spawns On Target Lost: No, otherwise it will despawn right away
 	 * @param i The entity going to be spawned (0-5)
 	 * @return Returns spawned entity
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public IEntityLiving spawnEntity(int i);
 

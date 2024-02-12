@@ -58,6 +58,9 @@ public interface IWorld {
 	 * @deprecated metadata nolonger exists
 	 */
 	public void setBlock(int x, int y, int z, String name, int meta);
+	/**
+	 * <i class="method-mutating"></i>
+	 */
 	public IBlock setBlock(IPos pos, String name);
 	/**
 	 * @deprecated
@@ -162,6 +165,8 @@ public interface IWorld {
 
 	/**
 	 * Depricated, use the API.clones.spawn instead
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	@Deprecated
 	public IEntity spawnClone(double x, double y, double z, int tab, String name);

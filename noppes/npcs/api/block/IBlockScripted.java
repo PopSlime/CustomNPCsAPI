@@ -73,6 +73,8 @@ public interface IBlockScripted extends IBlock{
 	 * For permission plugins the commands are run under uuid:c9c843f8-4cb1-4c82-aa61-e264291b7bd6 and name:[customnpcs]
 	 * @param command The command to be executed
 	 * @return Returns the commands output
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public String executeCommand(String command);
 

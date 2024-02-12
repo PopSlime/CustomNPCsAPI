@@ -24,6 +24,9 @@ public interface IScoreboardObjective {
 	
 	public boolean hasScore(String player);
 	
+	/**
+	 * <i class="method-mutating"></i>
+	 */
 	public IScoreboardScore createScore(String player);
 	
 	public void removeScore(String player);

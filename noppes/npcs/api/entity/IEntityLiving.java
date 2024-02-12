@@ -70,6 +70,9 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	
 	public int getPotionEffect(int effect);
 	
+	/**
+	 * <i class="method-mutating"></i>
+	 */
 	public IMark addMark(int type);
 	
 	public void removeMark(IMark mark);
