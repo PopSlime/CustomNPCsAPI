@@ -10,9 +10,15 @@ public interface IItemSlot extends ICustomGuiComponent {
 
     boolean hasStack();
     IItemStack getStack();
+	/**
+	 * <i class="method-chaining"></i>
+	 */
     IItemSlot setStack(IItemStack itemStack);
 
     int getShownSize();
+	/**
+	 * <i class="method-chaining"></i>
+	 */
     IItemSlot setShowSize(int size);
 
     /**
@@ -24,15 +30,26 @@ public interface IItemSlot extends ICustomGuiComponent {
     /**
      * This is purely for the visual slot, default is 1
      * @param type GuiType 0:None, 1:Normal, 2:Sword, 3:Arrow, 4:Shield, 5:Head, 6:Body, 7:Legs, 8:Feet
+     *
+	 * <i class="method-chaining"></i>
      */
     IItemSlot setGuiType(int type);
 
     boolean getDropOnClose();
+	/**
+	 * <i class="method-chaining"></i>
+	 */
     IItemSlot setDropOnClose(boolean drop);
 
     boolean isPlayerSlot();
-
+    
+	/**
+	 * <i class="method-chaining"></i>
+	 */
     IItemSlot setOnUpdate(GuiItemSlotUpdate onUpdate);
+	/**
+	 * <i class="method-chaining"></i>
+	 */
     IItemSlot setOnClick(GuiComponentSlotClicked onPress);
 
     int getIndex();

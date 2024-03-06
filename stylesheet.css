@@ -912,6 +912,21 @@ i.method-mutating::before {
 i.method-mutating:hover::before {
 	content: "This method modifies the state of the object";
 }
+i.method-chaining {
+	float: right;
+	background-color: #aea;
+	border-radius: 4px;
+	padding: 1px 4px;
+}
+i.method-chaining::before {
+	content: "Chaining method";
+	font-family: sans-serif;
+	font-style: normal;
+	font-size: 12px;
+}
+i.method-chaining:hover::before {
+	content: "This method returns the object itself for method chaining";
+}
 /**
  * Tweak font sizes and paddings for small screens.
  */
@@ -1126,5 +1141,8 @@ i.method-mutating:hover::before {
 	}
 	i.method-mutating {
 		background-color: #66a;
+	}
+	i.method-chaining {
+		background-color: #484;
 	}
 }
