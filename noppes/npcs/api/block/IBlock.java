@@ -45,7 +45,7 @@ public interface IBlock {
 	
 	boolean isAir();
 	
-	/*
+	/**
 	 * @param name Sets the block to replace this one using the blocks name
 	 * @return Returns the new block
 	 *
