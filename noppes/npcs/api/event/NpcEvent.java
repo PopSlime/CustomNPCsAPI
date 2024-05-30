@@ -312,7 +312,7 @@ public class NpcEvent extends CustomNPCsEvent{
 		 */
 		public final IDamageSource damageSource;
 		/**
-		 * <p>The ultimate source entity of the damage that causes the death.</p>
+		 * <p>The ultimate source entity of the damage.</p>
 		 * <p>For an indirect damage, this is the indirect source of the damage.</p>
 		 *
 		 * <p>Prior to 1.10.2(21jul17) or 1.11.2(29oct17), the type of this field is <code>noppes.npcs.api.entity.IEntityLivingBase</code> (refactored to {@link IEntityLiving}.)</p>

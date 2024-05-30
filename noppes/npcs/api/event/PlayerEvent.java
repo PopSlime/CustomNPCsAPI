@@ -480,7 +480,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 		 */
 		public final IDamageSource damageSource;
 		/**
-		 * <p>The ultimate source entity of the damage that causes the death.</p>
+		 * <p>The ultimate source entity of the damage.</p>
 		 * <p>For an indirect damage, this is the indirect source of the damage.</p>
 		 */
 		public final IEntity source;

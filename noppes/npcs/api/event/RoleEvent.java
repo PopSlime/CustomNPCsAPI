@@ -219,7 +219,8 @@ public class RoleEvent extends CustomNPCsEvent {
 		 */
 		public final IItemStack currency2;
 		/**
-		 * <p>This is a useless field.</p>
+		 * <p>The item stack to be received by the player.</p>
+		 * <p>Setting this field changes the item stack received by the player.</p>
 		 */
 		public IItemStack receiving;
 		
