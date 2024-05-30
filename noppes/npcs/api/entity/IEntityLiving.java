@@ -6,6 +6,9 @@ import noppes.npcs.api.item.IItemStack;
 
 /**
  * <p>Represents a <a href="https://minecraft.wiki/w/Entity#Types_of_entities">living entity</a>.</p>
+ *
+ * <p>Prior to 1.16.5-14Nov21snapshot, this interface is named <code>IEntityLivingBase</code>. It is renamed as <code>net.minecraft.entity.EntityLiving</code> is refactored to <code>net.minecraft.entity.LivingEntity</code> (now refactored to {@link LivingEntity}.)</p>
+ * <p>Prior to 1.8.9(29oct16), the interface is not generic.</p>
  */
 public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 
@@ -69,6 +72,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>Gets the timestamp when the living entity last attacked.</p>
 	 * @return The timestamp when the living entity last attacked.
 	 * <p>The returned timestamp can only be used in the context of the current entity and SHOULD NOT be compared with any timestamps obtained from other entities.</p>
+	 *
+	 * @since 1.12.2_04Mar19snapshot
 	 */
 	public int getLastAttackedTime();
 	
@@ -81,11 +86,15 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	
 	/**
 	 * <p>Swings the main hand of the living entity.</p>
+	 *
+	 * @since 1.9.4(29oct16)
 	 */
 	public void swingMainhand();
 	
 	/**
 	 * <p>Swings the off-hand of the living entity.</p>
+	 *
+	 * @since 1.9.4(29oct16)
 	 */
 	public void swingOffhand();
 	
@@ -93,6 +102,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>Gets the item stack in the main hand of the living entity.</p>
 	 * @return The item stack in the main hand of the living entity.
 	 * <p>If the living entity is not holding an item in its main hand, this method returns an instance of {@link IItemStack} with its {@link IItemStack#isEmpty()} method returns <code>true</code>.</p>
+	 *
+	 * @since 1.9.4(29oct16)
 	 */
 	public IItemStack getMainhandItem();
 	
@@ -100,6 +111,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>Sets the item stack in the main hand of the living entity.</p>
 	 * @param item The item stack to be set to the main hand of the living entity.
 	 * <p>If <code>item</code> is <code>null</code>, an empty item stack will be set.</p>
+	 *
+	 * @since 1.9.4(29oct16)
 	 */
 	public void setMainhandItem(IItemStack item);
 	
@@ -107,6 +120,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>Gets the item stack in the off-hand of the living entity.</p>
 	 * @return The item stack in the off-hand of the living entity.
 	 * <p>If the living entity is not holding an item in its off-hand, this method returns an instance of {@link IItemStack} with its {@link IItemStack#isEmpty()} method returns <code>true</code>.</p>
+	 *
+	 * @since 1.9.4(29oct16)
 	 */
 	public IItemStack getOffhandItem();
 	
@@ -114,8 +129,22 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>Sets the item stack in the off-hand of the living entity.</p>
 	 * @param item The item stack to be set to the off-hand of the living entity.
 	 * <p>If <code>item</code> is <code>null</code>, an empty item stack will be set.</p>
+	 *
+	 * @since 1.9.4(29oct16)
 	 */
 	public void setOffhandItem(IItemStack item);
+	
+	/**
+	 * @deprecated Pulled up to {@link IEntity#getName()} since 1.12.2_04Mar19snapshot
+	 * @since 1.11.2(29oct17)
+	 */
+	public String getName();
+	
+	/**
+	 * @deprecated Pulled up to {@link IEntity#setName(String)} since 1.12.2_04Mar19snapshot
+	 * @since 1.11.2(29oct17)
+	 */
+	public void setName(String name);
 	
 	/**
 	 * <p>Gets the item stack in an armor slot of the living entity.</p>
@@ -193,18 +222,24 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * @return The added mark.
 	 *
 	 * <i class="method-mutating"></i>
+	 *
+	 * @since 1.11.2(29oct17)
 	 */
 	public IMark addMark(int type);
 	
 	/**
 	 * <p>Removes a mark from the living entity.</p>
 	 * @param mark The mark to be removed.
+	 *
+	 * @since 1.11.2(29oct17)
 	 */
 	public void removeMark(IMark mark);
 	
 	/**
 	 * <p>Gets all the marks on the living entity.</p>
 	 * @return An array of all the marks on the living entity.
+	 *
+	 * @since 1.11.2(29oct17)
 	 */
 	public IMark[] getMarks();
 	
@@ -227,6 +262,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>A positive value indicates a forward movement, and a negative value indicates backward movement, relative to the current rotation of the living entity.</p>
 	 * <p>If the magnitude of the travel vector is greater than 1, it will be normalized before used to calculate motion.</p>
 	 * <p>The final velocity of the living entity is affected by other factors such as friction.</p>
+	 *
+	 * @since 1.12.2_01sep18snapshot
 	 */
 	public float getMoveForward();
 	
@@ -236,6 +273,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>A positive value indicates a forward movement, and a negative value indicates backward movement, relative to the current rotation of the living entity.</p>
 	 * <p>If the magnitude of the travel vector is greater than 1, it will be normalized before used to calculate motion.</p>
 	 * <p>The final velocity of the living entity is affected by other factors such as friction.</p>
+	 *
+	 * @since 1.12.2_01sep18snapshot
 	 */
 	public void setMoveForward(float move);
 	
@@ -246,6 +285,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>A positive value indicates a rightward movement, and a negative value indicates leftward movement, relative to the current rotation of the living entity.</p>
 	 * <p>If the magnitude of the travel vector is greater than 1, it will be normalized before used to calculate motion.</p>
 	 * <p>The final velocity of the living entity is affected by other factors such as friction.</p>
+	 *
+	 * @since 1.12.2_01sep18snapshot
 	 */
 	public float getMoveStrafing();
 	
@@ -255,6 +296,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>A positive value indicates a rightward movement, and a negative value indicates leftward movement, relative to the current rotation of the living entity.</p>
 	 * <p>If the magnitude of the travel vector is greater than 1, it will be normalized before used to calculate motion.</p>
 	 * <p>The final velocity of the living entity is affected by other factors such as friction.</p>
+	 *
+	 * @since 1.12.2_01sep18snapshot
 	 */
 	public void setMoveStrafing(float move);
 	
@@ -265,6 +308,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>A positive value indicates an upward movement, and a negative value indicates downward movement.</p>
 	 * <p>If the magnitude of the travel vector is greater than 1, it will be normalized before used to calculate motion.</p>
 	 * <p>The final velocity of the living entity is affected by other factors such as friction.</p>
+	 *
+	 * @since 1.12.2_01sep18snapshot
 	 */
 	public float getMoveVertical();
 	
@@ -274,6 +319,8 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * <p>A positive value indicates an upward movement, and a negative value indicates downward movement.</p>
 	 * <p>If the magnitude of the travel vector is greater than 1, it will be normalized before used to calculate motion.</p>
 	 * <p>The final velocity of the living entity is affected by other factors such as friction.</p>
+	 *
+	 * @since 1.12.2_01sep18snapshot
 	 */
 	public void setMoveVertical(float move);
 }
