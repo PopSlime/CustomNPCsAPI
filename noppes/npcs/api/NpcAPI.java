@@ -144,6 +144,8 @@ public abstract class NpcAPI {
 	 * @param world The world in which the command is executed
 	 * @param command The Command to execute
 	 * @return
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public abstract String executeCommand(IWorld world, String command);
 
@@ -151,6 +153,8 @@ public abstract class NpcAPI {
 	 * @param world The world in which the command is executed
 	 * @param command The Command to execute
 	 * @return
+	 *
+	 * <i class="method-mutating"></i>
 	 */
 	public abstract String executeCommandSilent(IWorld world, String command);
 	
